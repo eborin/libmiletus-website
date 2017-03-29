@@ -1,0 +1,53 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+.jumbotron {
+  padding-bottom: 20px;
+  background: url("./images/home.png") no-repeat transparent ;
+  background-size: cover;
+}
+
+
+.jumbotron2 {
+  background-color: transparent;
+  padding: 14px 24px;
+  font-size: 17px;
+}
+
+.jumbotron3 {
+  background-color: lighten;
+  padding: 14px 24px;
+  font-size: 17px;
+}
+
+.fluxograma {
+  background-color: #CDDE87;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.image {
+  background-color: transparent;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.modulos {
+  background-color: transparent;
+  padding: 14px 24px;
+  padding-top: 50px;
+}
+.vazio {
+  background-color: transparent;
+  padding: 30px 0px;
+}
+
+.btn-home {
+  color: #fff;
+  background-color: #97A9D9;
+  border-color: #97A9D9;
+}
+
+

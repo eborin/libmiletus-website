@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<!-- colocar imagnes circulos -->
+<!-- ver se o fundo do geral pode ser uma imagem -->
+
+
+<html lang="en">
+  <head>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Lib Miletus website">
+    <meta name="author" content="Edson Borin">
+	
+    <!-- TODO: Replace this icon. -->
+    <link rel="icon" href="./icone.ico">
+
+    <title>Home</title>
+													<!-- nome na aba do navegador -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="./bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./bootstrap-3.3.7/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+    <link href="navbar-fixed-top.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./bootstrap-3.3.7/docs/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">LibMiletus</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="./getting_started.html">Getting Started</a></li>
+            <li><a href="./supported_platforms.html">Supported Platforms</a></li>
+            <li><a href="./how_to_contribute.html">How to contribute</a></li>
+            <li><a href="./overview.html">Overview</a></li>
+            <li><a href="./wish_list.html">Wish list</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+
+    <!-- QUADRO GERAL -->
+    <div class="jumbotron">
+      <div class="container">
+		<!-- Apresentação geral do curso -->
+        <h1>LibMiletus: IoT device prototyping made easy!</h1>
+
+        <p>The main goal of LibMiletus is to enable developers to
+	  easily design and implement IoT devices. To this end, the
+	  library has been designed to hide communication details so
+	  that the programmer can focus on the IoT device
+	  functionalities instead of the interoperability and
+	  hardware communication inner workings.
+	</p>
+
+<!--        <p><a class="btn btn-home btn-lg" href="./getting_started.html" role="button" >Try it now!</a></p> -->
+        <p><a class="btn btn-home btn-lg" href="./getting_started.html" role="button" >Get started now!</a></p>
+      </div>
+    </div>
+
+    <div class="container marketing">
+
+      <!-- First row of advertisement -->
+      <div class="row">
+
+	<!--
+        <div class="col-lg-4">
+          <h2>IoT: A brave new world</h2>
+	  <p>
+	    The evolution and cost reduction of wireless communication
+	    technologies and embedded processors is enabling many
+	    things (appliances, cars, etc.) to be connected through
+	    the Internet. This new Internet, known as Internet of
+	    Things, or IoT, will allow a higher degree of integration
+	    between the virtual and the physical world, enabling
+	    innovations that will revolutionize the way we live.
+	  </p>
+        </div>
+	-->
+
+        <div class="col-lg-4">
+          <!-- <img class="img-circle" src="./imagens/FOSSASIA-2-Simple-_no-text_-300px_editada.png" alt="Generic placeholder image" width="140" height="140"> -->
+          <h2>Arduino IDE ready</h2>
+
+	  <p>
+	    LibMiletus can be easily installed and used through the
+	    Arduino IDE, which makes it easy to use by programmers with
+	    little or no experience with embedded systems.
+	  </p>
+
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4">
+          <!-- <img class="img-circle" src="./imagens/FOSSASIA-2-Simple-_no-text_-300px_editada.png" alt="Generic placeholder image" width="140" height="140"> -->
+          <h2>Miletus App</h2>
+
+	  <p>
+	    LibMiletus comes with a companion App for easy and direct
+	    communication between smartphones and IoT devices through WiFi and
+	    BLE interfaces.
+	  </p>
+
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4">
+          <!-- <img class="img-circle" src="./imagens/FOSSASIA-2-Simple-_no-text_-300px_editada.png" alt="Generic placeholder image" width="140" height="140"> -->
+          <h2>MIT License</h2>
+
+	  <p>
+	    Anyone can modify and use the library for their own purposes!
+	  </p>
+
+        </div><!-- /.col-lg-4 -->
+
+      </div>
+
+      <!-- Second row -->
+      <div class="row">
+
+        <div class="col-lg-4">
+          <!-- <img class="img-circle" src="./imagens/FOSSASIA-2-Simple-_no-text_-300px_editada.png" alt="Generic placeholder image" width="140" height="140"> -->
+          <h2>Low-cost hardware</h2>
+
+	  <p>
+	    LibMiletus is compatible with low-cost hardware, such as NodeMCU and HM-10 BLE hardware.
+	  </p>
+
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4">
+          <!-- <img class="img-circle" src="./imagens/FOSSASIA-2-Simple-_no-text_-300px_editada.png" alt="Generic placeholder image" width="140" height="140"> -->
+          <h2>Constrained hardware</h2>
+
+	  <p>
+	    LibMiletus is designed to be compatible with constrained
+	    hardware, hence, it works with ESP-8266 chips!
+	  </p>
+
+        </div><!-- /.col-lg-4 -->
+
+
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+
+<!--
+      <footer>
+        <p>&copy; 2017 Edson Borin.</p>
+      </footer>
+-->
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="./dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="..	/bootstrap-3.3.7/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
