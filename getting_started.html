@@ -84,14 +84,14 @@
 	    <li><a href="#download-arduino">1 - Downloading and installing the Arduino IDE</a></li>
  	    <li><a href="#esp8266-support">2 - Installing the add-on support for ESP-8266</a></li>
 	    <li><a href="#test-nodemcu">3 - Testing the NodeMCU board</a></li>
-	    <li><a href="#fix-linking-script">4 - Fixing the linking script</a></li>
-            <li><a href="#install-libmiletus">5 - Installing the LibMiletus via Arduino IDE menu</a></li>
-            <li><a href="#run-demo">6 - Running the demonstrative example</a></li>
+            <li><a href="#install-libmiletus">4 - Installing the LibMiletus via Arduino IDE menu</a></li>
+            <li><a href="#run-demo">5 - Running the demonstrative example</a></li>
             <ul>
-              <li><a href="#run-demo-setup">6a - Configuring and flashing the example</a></li>
-              <li><a href="#run-demo-curl">6b - Interacting with the IoT device using the curl command</a></li>
-	      <li><a href="#run-demo-miletus-app">6c - Interacting with the IoT device using the Miletus App</a></li>
+              <li><a href="#run-demo-setup">5a - Configuring and flashing the example</a></li>
+              <li><a href="#run-demo-curl">5b - Interacting with the IoT device using the curl command</a></li>
+	      <li><a href="#run-demo-miletus-app">5c - Interacting with the IoT device using the Miletus App</a></li>
 	    </ul>
+	    <li><a href="#troubleshooting">6 - Troubleshooting</a></li>
 	  </ul>
 	</p>
 
@@ -160,7 +160,24 @@
 	  Once you finish uploading the code, this LED must start blinking. 
 	</p>
 
-	<h2 id="fix-linking-script">4 - Fixing the linking script</h2>
+        <h2 id="install-libmiletus">4 - Installing the LibMiletus via Arduino IDE menu</h2>
+
+	<p>The next step is to install the LibMiletus library. You may perform this task using the Arduino IDE. To do so, you must:
+	  <ul>
+	    <li>Download the <a href="https://github.com/MotorolaMobilityLLC/LibMiletus/zipball/master/">latest ZIP</a> version of LibMiletus</li>
+	    <li>Open the menu “Sketch -&gt; Include Library -&gt; Add .ZIP Library…”</li>
+	    <li>Point it to the file that you have just downloaded and installed.</li>
+	  </ul>
+	</p>
+
+        <h2 id="run-demo">5 - Running the demonstrative example</h2>
+        <h3 id="run-demo-setup">5a - Configuring and flashing the example</h3>
+        <h3 id="run-demo-curl">5b - Interacting with the IoT device using the curl command</h3>
+	<h3 id="run-demo-miletus-app">5c - Interacting with the IoT device using the Miletus App</h3>
+
+	<h2 id="throubleshooting">6 - Troubleshooting</h2>
+
+	<h3 id="fix-linking-script">Fixing the linking script (Optional)</h3>
 
 	<p>The ESP8266 extensions for the Arduino IDE include a
 	  compiler, an assembler and a linker that enables the Arduino IDE
@@ -169,11 +186,26 @@
 	  ...) into the hardware address space happens to map
 	  constants at the <tt>iram.text</tt> sections to the RAM
 	  memory, instead of the Flash. Unfortunately, this may cause
-	  the system to run out of RAM memory when the program 
-	  contains large constants, which may be the case when using
-	  LibMiletus. In this section we provide instructions so that you
+	  the system to run out of memory when the program 
+	  contains large constants, which may be the case when using 
+	  many String objects.
+	</p>
+
+	<p>
+	  This problem has been reported by some of our users in some versions of the Arduino IDE. In this section,
+	  we provide instructions so that you
 	  can modify your linker script to map these constants into the
-	  Flash memory, instead of RAM.
+	  Flash memory, instead of RAM. 
+	</p>
+
+	<p>
+	  Before you start, we would like to point out that these
+	  changes might not be necessary depending on your Arduino
+	  IDE. In this sense, we recommend that you first try to flash
+	  the demonstrative example (distributed with LibMiletus) into
+	  the NodeMCU without trying to fix the linking script. If the
+	  IDE does not complain about program size, this fix may not be
+	  necessary.
 	</p>
 
 	<p>In order to fix the linking script, your must first locate the linker script file: <strong>“eagle.app.v6.common.ld”</strong>
@@ -220,22 +252,6 @@
 	  After you finish editing your script file, run the NodeMCU
 	  tests again to make sure everything is still working.
 	</p>
-	
-
-        <h2 id="install-libmiletus">5 - Installing the LibMiletus via Arduino IDE menu</h2>
-
-	<p>The next step is to install the LibMiletus library. You may perform this task using the Arduino IDE. To do so, you must:
-	  <ul>
-	    <li>Download the <a href="https://github.com/MotorolaMobilityLLC/LibMiletus/zipball/master/">latest ZIP</a> version of LibMiletus</li>
-	    <li>Open the menu “Sketch -&gt; Include Library -&gt; Add .ZIP Library…”</li>
-	    <li>Point it to the file that you have just downloaded and installed.</li>
-	  </ul>
-	</p>
-
-        <h2 id="run-demo">6 - Running the demonstrative example</h2>
-        <h3 id="run-demo-setup">6a - Configuring and flashing the example</h3>
-        <h3 id="run-demo-curl">6b - Interacting with the IoT device using the curl command</h3>
-	<h3 id="run-demo-miletus-app">6c - Interacting with the IoT device using the Miletus App</h3>
 
 
 
