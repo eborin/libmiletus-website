@@ -9,7 +9,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Lib Miletus website">
     <meta name="author" content="Edson Borin">
-	
+  
     <!-- TODO: Replace this icon. -->
     <link rel="icon" href="./icone.ico">
 
@@ -68,11 +68,36 @@
     <div class="jumbotron2">
       <div class="container">
 
-	<h1>How to contribute</h1>
+  <h1>How to contribute</h1>
 
-	<p>
-	  ...
-	</p>
+  <p>
+    Contributions are most welcome
+    Just ensure you follow the code style formatting
+    Don’t hesitate to submit your Pull Request!
+  </p>
+
+  <h1 id="porting-guide">Porting guide</h2>
+
+    <p>To port to another platform, you need to implement the abstract classes from</p>
+
+    <ul>
+      <li>libMiletusProvider.h
+      — To provide basic platform features required from libMiletus
+        <ul>
+          <li>Get a random number</li>
+          <li>Print debug messages</li>
+          <li>Show memory usage</li>
+        </ul>
+      </li>
+      <li>libMiletusComIf.h
+    — To provide communication capabilities (WiFi, BLE, Etc.)
+        <ul>
+          <li>Act as a server, handling requests</li>
+          <li>Send encapsulated messages to the client</li>
+          <li>Configure auto-discovery mechanism (mDNS, GAT, Etc.)</li>
+        </ul>
+      </li>
+    </ul>
 
 
       </div> <!-- container -->
@@ -92,6 +117,6 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="./dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="..	/bootstrap-3.3.7/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src=".. /bootstrap-3.3.7/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
