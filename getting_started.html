@@ -174,7 +174,7 @@
         <p>Change the SSID, Password, and, optionally, the name of the device.</p>
         <p>Select the appropriate board and upload the program.</p>
         <p>Then you have a functional device.</p>
-    <h3 id="run-demo-setup">6a - Configuring and flashing the example</h3>
+    <h3 id="run-demo-setup">5a - Configuring and flashing the example</h3>
         <p>Open the example in the menu “File -&gt; Examples -&gt; libMiletus -&gt; NodeMCU-LED” and the Serial Monitor
         “Tools -&gt; Serial Monitor”
         Make sure that data rate for serial data transmission is set to 115200 baud.</p>
@@ -186,14 +186,14 @@
         <p>The blue LED next to the micro USB port should light up and the Serial Monitor should show:</p>
         
         <pre><code class="language-Upload```">Connecting...<br />---<br />Connected to &lt;SSID&gt;<br />IP address: &lt;IP Address&gt;</code></pre>
-    <h3 id="run-demo-curl">6b - Interacting with the IoT device using the curl command</h3>
+    <h3 id="run-demo-curl">5b - Interacting with the IoT device using the curl command</h3>
         <p>Run the following command on the terminal, changing the ```IP Address``` for the IP and the port of your board, by default, the port is 80:</p>
         <div class="highlighter-rouge"><pre class="highlight"><code>$ curl -H "Content-Type: application/json" -X POST -d '{"name":"lamp.toggleLED","component":"lamp","parameters":{}}' &lt;IP Address&gt;:&lt;Port&gt;/commands/execute</code></pre>
         </div>
         <p>Make sure that your device and your computer are on the same network.</p>
         <p>The LED should toggle.</p>
         <p>This command toggles the LED, so running it again will turn it back on.</p>
-    <h3 id="run-demo-miletus-app">6c - Interacting with the IoT device using the Miletus App</h3>
+    <h3 id="run-demo-miletus-app">5c - Interacting with the IoT device using the Miletus App</h3>
         <p>Soon..</p>
 
 	<h2 id="troubleshooting">6 - Troubleshooting</h2>
@@ -274,8 +274,11 @@
 	  tests again to make sure everything is still working.
 	</p>
 
+    <h3 id="fix-linking-script">Cannot access /dev/ttyUSB0 (Optional)</h3>
 
+    If the above error (ttyUSB0 can be replaced by the name of your serial port) shows up when you try to upload a program to your Arduino board, run the command:
 
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>$ sudo chmod a+rw /dev/ttyUSB0</code></pre>
 
 
       </div> <!-- container -->
