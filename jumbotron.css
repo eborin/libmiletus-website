@@ -46,8 +46,25 @@ body {
 
 .btn-home {
   color: #fff;
-  background-color: #97A9D9;
-  border-color: #97A9D9;
+  background-color: #0973B3;
+  border-color: #043755;
 }
 
 
+.capital-letter{
+  color: #043755;
+}
+
+.normal-letter{
+}
+
+.navbar{ 
+    background-image: none;
+    background-color:#043755;
+    border-radius:0;
+    color:#fff;
+}
+
+.navbar-brand{
+  color:#ffffff;
+}
