@@ -96,52 +96,43 @@
   For a Debian-based system and the Edson board, you can use the configure script.</p>
 
   <p>To execute it, open a terminal, navigate to the libMiletus directory and run:</p>
-  <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>LibMiletus/linux
-  </code></pre>
+  <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>LibMiletus/linux</code></pre>
   </div>
   <p>Then, run the configuration script
   (The parameter name is optional and defines the mDNS name).</p>
   <div class="language-bash highlighter-rouge"><pre class="highlight"><code>chmod +x configure.sh
-  ./configure.sh --name YOUR_DEVICE_NAME_HERE
-  </code></pre>
+  ./configure.sh --name YOUR_DEVICE_NAME_HERE</code></pre>
   </div>
 
   <p>If you are executing another Linux distribution, please install the Avahi service and, then, execute the configuration script with the argument ignore_install.</p>
-  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>./configure.sh --name YOUR_DEVICE_NAME_HERE --ignore_install yes
-  </code></pre>
+  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>./configure.sh --name YOUR_DEVICE_NAME_HERE --ignore_install yes</code></pre>
   </div>
 
   <p>Restart the Avahi service or the computer</p>
-  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>restart
-  </code></pre>
+  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>restart</code></pre>
   </div>
   <h3 id="building-examples">Building Examples</h3>
 
   <p>Make sure you have <strong>cmake</strong> installed
   Navigate to the libMiletus directory and then to the linux subdirectory.</p>
-  <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>LibMiletus/linux
-  </code></pre>
+  <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">cd </span>LibMiletus/linux</code></pre>
   </div>
 
   <p>To build the library and the examples, execute the script build.sh</p>
   <div class="language-bash highlighter-rouge"><pre class="highlight"><code>chmod +x build.sh
-  ./build.sh
-  </code></pre>
+  ./build.sh</code></pre>
   </div>
 
   <p>Now, you can execute the example.</p>
-  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>./linux_example
-  </code></pre>
+  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>./linux_example</code></pre>
   </div>
   <p>You may need to give super-user privileges to use port 80 (or to access Bluetooth capabilities in the near future)</p>
-  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo ./linux_example
-  </code></pre>
+  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo ./linux_example</code></pre>
   </div>
 
   <p>You will get the error <code class="highlighter-rouge">"Error binding socket on Server"</code> if the 80 port is already in use (e.g., by Apache or edison_config)
   You can use the command netstat to find out the service that is running on the port 80 and stop it.</p>
-  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>netstat -tulpn | grep :80
-  </code></pre>
+  <div class="language-bash highlighter-rouge"><pre class="highlight"><code>netstat -tulpn | grep :80</code></pre>
   </div>
 
 

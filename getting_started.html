@@ -265,17 +265,19 @@
 	<p>
 	  Once you have located the file, edit it by moving the “<code class="highlighter-rouge">*.c.o(.iram.text)</code>” entry to line 160, as indicated bellow:
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>153     .irom0.text : ALIGN<span class="o">(</span>4<span class="o">)</span>
-154     <span class="o">{</span>
-155         _irom0_text_start <span class="o">=</span> ABSOLUTE<span class="o">(</span>.<span class="o">)</span>;
-156         <span class="k">*</span><span class="o">(</span>.ver_number<span class="o">)</span>
-157         <span class="k">*</span>.c.o<span class="o">(</span> EXCLUDE_FILE <span class="o">(</span>umm_malloc.c.o<span class="o">)</span> .literal<span class="k">*</span>, <span class="se">\</span>
-158                  EXCLUDE_FILE <span class="o">(</span>umm_malloc.c.o<span class="o">)</span> .text<span class="k">*</span><span class="o">)</span>
-159        <span class="k">*</span>.cpp.o<span class="o">(</span>.literal<span class="k">*</span>, .text<span class="k">*</span><span class="o">)</span>
-160        <span class="k">*</span>.c.o<span class="o">(</span>.iram.text<span class="o">)</span>
-161        <span class="k">*</span>libc.a:<span class="o">(</span>.literal .text .literal.<span class="k">*</span> .text.<span class="k">*</span><span class="o">)</span>
-162        <span class="k">*</span>libm.a:<span class="o">(</span>.literal .text .literal.<span class="k">*</span> .text.<span class="k">*</span><span class="o">)</span>
-</code></pre>
+<div class="language-bash highlighter-rouge">
+<pre class="highlight">
+<code>153     .irom0.text : ALIGN(4)
+154     {
+155         _irom0_text_start = ABSOLUTE(.);
+156         *(.ver_number)
+157         *.c.o( EXCLUDE_FILE (umm_malloc.c.o) .literal*, \
+158                  EXCLUDE_FILE (umm_malloc.c.o) .text*)
+159        *.cpp.o(.literal*, .text*)
+160        *.c.o(.iram.text)
+161        *libc.a:(.literal .text .literal.* .text.*)
+162        *libm.a:(.literal .text .literal.* .text.*)</code>
+</pre>
 
 	</p>
   
@@ -288,7 +290,10 @@
 
     If the above error (ttyUSB0 can be replaced by the name of your serial port) shows up when you try to upload a program to your Arduino board, run the command:
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>$ sudo chmod a+rw /dev/ttyUSB0</code></pre>
+<div class="language-bash highlighter-rouge">
+<pre class="highlight">
+<code>$ sudo chmod a+rw /dev/ttyUSB0</code>
+</pre>
 
 
       </div> <!-- container -->
