@@ -111,150 +111,154 @@ The display Component has Traits for brightness, contrast, and also has the Trai
 
 <p>An abstract example of the device is represented in JSON format bellow.</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-  <span class="s2">"Device"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"AirConditioning"</span><span class="err">:</span> <span class="p">{</span>
-      <span class="s2">"components"</span><span class="err">:</span> <span class="p">{</span>
-        <span class="s2">"Control"</span><span class="err">:</span> <span class="p">{</span>
-          <span class="s2">"traits"</span><span class="err">:</span> <span class="p">{</span>
-            <span class="s2">"onOff"</span><span class="err">:</span> <span class="p">{</span>
-              <span class="s2">"commands"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"onOff"</span><span class="err">:</span> <span class="p">{}</span>
-              <span class="p">},</span>
-              <span class="s2">"states"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"isTurnedOn"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"boolean"</span><span class="p">,</span>
-                  <span class="s2">"currentValue"</span><span class="err">:</span> <span class="kc">true</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="s2">"temperature"</span><span class="err">:</span> <span class="p">{</span>
-              <span class="s2">"commands"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"setTemperature"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"parameters"</span><span class="err">:</span> <span class="p">{</span>
-                    <span class="s2">"temperature"</span><span class="err">:</span> <span class="p">{</span>
-                      <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">,</span>
-                      <span class="s2">"maximum"</span><span class="err">:</span> <span class="mi">30</span><span class="p">,</span>
-                      <span class="s2">"minimum"</span><span class="err">:</span> <span class="mi">17</span>
-                    <span class="p">}</span>
-                  <span class="p">}</span>
-                <span class="p">},</span>
-                <span class="s2">"increaseTemperature"</span><span class="err">:</span> <span class="p">{},</span>
-                <span class="s2">"decreaseTemperature"</span><span class="err">:</span> <span class="p">{}</span>
-              <span class="p">},</span>
-              <span class="s2">"states"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"temperature"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"unity"</span><span class="err">:</span> <span class="s2">"celsius"</span><span class="p">,</span>
-                  <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">,</span>
-                  <span class="s2">"maximum"</span><span class="err">:</span> <span class="mi">30</span><span class="p">,</span>
-                  <span class="s2">"minimum"</span><span class="err">:</span> <span class="mi">17</span><span class="p">,</span>
-                  <span class="s2">"currentValue"</span><span class="err">:</span> <span class="mi">23</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="s2">"Environment"</span><span class="err">:</span> <span class="p">{</span>
-          <span class="s2">"traits"</span><span class="err">:</span> <span class="p">{</span>
-            <span class="s2">"temperature"</span><span class="err">:</span> <span class="p">{</span>
-              <span class="s2">"states"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"temperature"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"unity"</span><span class="err">:</span> <span class="s2">"celsius"</span><span class="p">,</span>
-                  <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">,</span>
-                  <span class="s2">"maximum"</span><span class="err">:</span> <span class="mi">30</span><span class="p">,</span>
-                  <span class="s2">"minimum"</span><span class="err">:</span> <span class="mi">17</span><span class="p">,</span>
-                  <span class="s2">"currentValue"</span><span class="err">:</span> <span class="mi">23</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="s2">"humidity"</span><span class="err">:</span> <span class="p">{</span>
-              <span class="s2">"states"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"humidity"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"unity"</span><span class="err">:</span> <span class="s2">"percentage"</span><span class="p">,</span>
-                  <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">,</span>
-                  <span class="s2">"maximum"</span><span class="err">:</span> <span class="mi">100</span><span class="p">,</span>
-                  <span class="s2">"minimum"</span><span class="err">:</span> <span class="mi">0</span><span class="p">,</span>
-                  <span class="s2">"currentValue"</span><span class="err">:</span> <span class="mi">58</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="s2">"lightness"</span><span class="err">:</span> <span class="p">{</span>
-              <span class="s2">"state"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"lightness"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"unity"</span><span class="err">:</span> <span class="s2">"lux"</span><span class="p">,</span>
-                  <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">,</span>
-                  <span class="s2">"maximum"</span><span class="err">:</span> <span class="mi">20000</span><span class="p">,</span>
-                  <span class="s2">"minimum"</span><span class="err">:</span> <span class="mf">0.0001</span><span class="p">,</span>
-                  <span class="s2">"currentValue"</span><span class="err">:</span> <span class="mf">348.57</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="s2">"Display"</span><span class="err">:</span> <span class="p">{</span>
-          <span class="s2">"traits"</span><span class="err">:</span> <span class="p">{</span>
-            <span class="s2">"onOff"</span><span class="err">:</span> <span class="p">{</span>
-              <span class="s2">"commands"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"onOff"</span><span class="err">:</span> <span class="p">{}</span>
-              <span class="p">},</span>
-              <span class="s2">"states"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"isTurnedOn"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"boolean"</span><span class="p">,</span>
-                  <span class="s2">"currentValue"</span><span class="err">:</span> <span class="kc">true</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="s2">"brightness"</span><span class="err">:</span> <span class="p">{</span>
-              <span class="s2">"commands"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"setBrilightness"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"parameters"</span><span class="err">:</span> <span class="p">{</span>
-                    <span class="s2">"brightness"</span><span class="err">:</span> <span class="p">{</span>
-                      <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">,</span>
-                      <span class="s2">"maximum"</span><span class="err">:</span> <span class="mi">100</span><span class="p">,</span>
-                      <span class="s2">"minimum"</span><span class="err">:</span> <span class="mi">0</span>
-                    <span class="p">}</span>
-                  <span class="p">}</span>
-                <span class="p">}</span>
-              <span class="p">},</span>
-              <span class="s2">"states"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"brightness"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"unity"</span><span class="err">:</span> <span class="s2">"percentage"</span><span class="p">,</span>
-                  <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">,</span>
-                  <span class="s2">"maximum"</span><span class="err">:</span> <span class="mi">100</span><span class="p">,</span>
-                  <span class="s2">"minimum"</span><span class="err">:</span> <span class="mi">0</span><span class="p">,</span>
-                  <span class="s2">"currentValue"</span><span class="err">:</span> <span class="mi">50</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="s2">"contrast"</span><span class="err">:</span> <span class="p">{</span>
-              <span class="s2">"commands"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"setContrast"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"parameters"</span><span class="err">:</span> <span class="p">{</span>
-                    <span class="s2">"brightness"</span><span class="err">:</span> <span class="p">{</span>
-                      <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">,</span>
-                      <span class="s2">"maximum"</span><span class="err">:</span> <span class="mi">100</span><span class="p">,</span>
-                      <span class="s2">"minimum"</span><span class="err">:</span> <span class="mi">0</span>
-                    <span class="p">}</span>
-                  <span class="p">}</span>
-                <span class="p">}</span>
-              <span class="p">},</span>
-              <span class="s2">"states"</span><span class="err">:</span> <span class="p">{</span>
-                <span class="s2">"contrast"</span><span class="err">:</span> <span class="p">{</span>
-                  <span class="s2">"unity"</span><span class="err">:</span> <span class="s2">"percentage"</span><span class="p">,</span>
-                  <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span><span class="p">,</span>
-                  <span class="s2">"maximum"</span><span class="err">:</span> <span class="mi">100</span><span class="p">,</span>
-                  <span class="s2">"minimum"</span><span class="err">:</span> <span class="mi">0</span><span class="p">,</span>
-                  <span class="s2">"currentValue"</span><span class="err">:</span> <span class="mi">50</span>
-                <span class="p">}</span>
-              <span class="p">}</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+{
+  "Device": {
+    "AirConditioning": {
+      "components": {
+        "Control": {
+          "traits": {
+            "onOff": {
+              "commands": {
+                "onOff": {}
+              },
+              "states": {
+                "isTurnedOn": {
+                  "type": "boolean",
+                  "currentValue": true
+                }
+              }
+            },
+            "temperature": {
+              "commands": {
+                "setTemperature": {
+                  "parameters": {
+                    "temperature": {
+                      "type": "number",
+                      "maximum": 30,
+                      "minimum": 17
+                    }
+                  }
+                },
+                "increaseTemperature": {},
+                "decreaseTemperature": {}
+              },
+              "states": {
+                "temperature": {
+                  "unity": "celsius",
+                  "type": "number",
+                  "maximum": 30,
+                  "minimum": 17,
+                  "currentValue": 23
+                }
+              }
+            }
+          }
+        },
+        "Environment": {
+          "traits": {
+            "temperature": {
+              "states": {
+                "temperature": {
+                  "unity": "celsius",
+                  "type": "number",
+                  "maximum": 30,
+                  "minimum": 17,
+                  "currentValue": 23
+                }
+              }
+            },
+            "humidity": {
+              "states": {
+                "humidity": {
+                  "unity": "percentage",
+                  "type": "number",
+                  "maximum": 100,
+                  "minimum": 0,
+                  "currentValue": 58
+                }
+              }
+            },
+            "lightness": {
+              "state": {
+                "lightness": {
+                  "unity": "lux",
+                  "type": "number",
+                  "maximum": 20000,
+                  "minimum": 0.0001,
+                  "currentValue": 348.57
+                }
+              }
+            }
+          }
+        },
+        "Display": {
+          "traits": {
+            "onOff": {
+              "commands": {
+                "onOff": {}
+              },
+              "states": {
+                "isTurnedOn": {
+                  "type": "boolean",
+                  "currentValue": true
+                }
+              }
+            },
+            "brightness": {
+              "commands": {
+                "setBrilightness": {
+                  "parameters": {
+                    "brightness": {
+                      "type": "number",
+                      "maximum": 100,
+                      "minimum": 0
+                    }
+                  }
+                }
+              },
+              "states": {
+                "brightness": {
+                  "unity": "percentage",
+                  "type": "number",
+                  "maximum": 100,
+                  "minimum": 0,
+                  "currentValue": 50
+                }
+              }
+            },
+            "contrast": {
+              "commands": {
+                "setContrast": {
+                  "parameters": {
+                    "brightness": {
+                      "type": "number",
+                      "maximum": 100,
+                      "minimum": 0
+                    }
+                  }
+                }
+              },
+              "states": {
+                "contrast": {
+                  "unity": "percentage",
+                  "type": "number",
+                  "maximum": 100,
+                  "minimum": 0,
+                  "currentValue": 50
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    </code>
+  </pre>
 </div>
 
 <h2 id="requests">Requests</h2>
@@ -269,44 +273,48 @@ The display Component has Traits for brightness, contrast, and also has the Trai
 </div>
 <p>The response comes in the JSON format.
 An example is shown below.</p>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-  <span class="s2">"AccountId"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="s2">"Id"</span><span class="err">:</span> <span class="s2">"1c9c1b5d"</span><span class="p">,</span>
-  <span class="s2">"Name"</span><span class="err">:</span> <span class="s2">"Example_Device"</span><span class="p">,</span>
-  <span class="s2">"Description"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="s2">"ModelManifestId"</span><span class="err">:</span> <span class="s2">"LIBMI"</span><span class="p">,</span>
-  <span class="s2">"UiDeviceKind"</span><span class="err">:</span> <span class="s2">"vendor"</span><span class="p">,</span>
-  <span class="s2">"Location"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="s2">"LocalId"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-  <span class="s2">"DiscoveryTransport"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"hasCloud"</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"hasWifi"</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"hasLan"</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"hasBle"</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"LanTransport"</span><span class="err">:</span> <span class="p">{</span>
-      <span class="s2">"ConnectionStatus"</span><span class="err">:</span> <span class="s2">"online"</span><span class="p">,</span>
-      <span class="s2">"HttpAddress"</span><span class="err">:</span> <span class="s2">"192.168.0.11"</span><span class="p">,</span>
-      <span class="s2">"HttpInfoPort"</span><span class="err">:</span> <span class="mi">8080</span><span class="p">,</span>
-      <span class="s2">"HttpPort"</span><span class="err">:</span> <span class="mi">8081</span><span class="p">,</span>
-      <span class="s2">"HttpUpdatesPort"</span><span class="err">:</span> <span class="mi">8082</span><span class="p">,</span>
-      <span class="s2">"HttpsPort"</span><span class="err">:</span> <span class="mi">8083</span><span class="p">,</span>
-      <span class="s2">"HttpsUpdatesPort"</span><span class="err">:</span> <span class="mi">8084</span>
-    <span class="p">},</span>
-    <span class="s2">"CloudTransport"</span><span class="err">:</span> <span class="p">{</span>
-      <span class="s2">"ConnectionStatus"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-      <span class="s2">"Id"</span><span class="err">:</span> <span class="s2">""</span>
-    <span class="p">},</span>
-    <span class="s2">"WifiTransport"</span><span class="err">:</span> <span class="p">{</span>
-      <span class="s2">"ConnectionStatus"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-      <span class="s2">"Ssid"</span><span class="err">:</span> <span class="s2">""</span>
-    <span class="p">},</span>
-    <span class="s2">"BleTransport"</span><span class="err">:</span> <span class="p">{</span>
-      <span class="s2">"ConnectionStatus"</span><span class="err">:</span> <span class="s2">""</span><span class="p">,</span>
-      <span class="s2">"Address"</span><span class="err">:</span> <span class="s2">""</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+      {
+        "AccountId": "",
+        "Id": "1c9c1b5d",
+        "Name": "Example_Device",
+        "Description": "",
+        "ModelManifestId": "LIBMI",
+        "UiDeviceKind": "vendor",
+        "Location": "",
+        "LocalId": "",
+        "DiscoveryTransport": {
+          "hasCloud": false,
+          "hasWifi": false,
+          "hasLan": true,
+          "hasBle": false,
+          "LanTransport": {
+            "ConnectionStatus": "online",
+            "HttpAddress": "192.168.0.11",
+            "HttpInfoPort": 8080,
+            "HttpPort": 8081,
+            "HttpUpdatesPort": 8082,
+            "HttpsPort": 8083,
+            "HttpsUpdatesPort": 8084
+          },
+          "CloudTransport": {
+            "ConnectionStatus": "",
+            "Id": ""
+          },
+          "WifiTransport": {
+            "ConnectionStatus": "",
+            "Ssid": ""
+          },
+          "BleTransport": {
+            "ConnectionStatus": "",
+            "Address": ""
+          }
+        }
+      }
+    </code>
+  </pre>
 </div>
 
 <h3 id="traits-1">Traits</h3>
@@ -317,37 +325,41 @@ Using this information you can know information about the device states, retriev
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl 192.168.0.11/traits
 </code></pre>
 </div>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-  <span class="s2">"fingerprint"</span><span class="err">:</span> <span class="mi">135246</span><span class="p">,</span>
-  <span class="s2">"traits"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"room"</span><span class="err">:</span> <span class="p">{</span>
-      <span class="s2">"commands"</span><span class="err">:</span> <span class="p">{</span>
-        <span class="s2">"onOff"</span><span class="err">:</span> <span class="p">{</span>
-          <span class="s2">"parameters"</span><span class="err">:</span> <span class="p">{</span>
-            <span class="s2">"lightparam"</span><span class="err">:</span> <span class="p">{</span>
-              <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"boolean"</span>
-            <span class="p">}</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-      <span class="p">},</span>
-      <span class="s2">"state"</span><span class="err">:</span> <span class="p">{</span>
-        <span class="s2">"light"</span><span class="err">:</span> <span class="p">{</span>
-          <span class="s2">"isRequired"</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
-          <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"boolean"</span>
-        <span class="p">},</span>
-        <span class="s2">"temperature"</span><span class="err">:</span> <span class="p">{</span>
-          <span class="s2">"isRequired"</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
-          <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span>
-        <span class="p">},</span>
-        <span class="s2">"humidity"</span><span class="err">:</span> <span class="p">{</span>
-          <span class="s2">"isRequired"</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
-          <span class="s2">"type"</span><span class="err">:</span> <span class="s2">"number"</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+  {
+  "fingerprint": 135246,
+  "traits": {
+    "room": {
+      "commands": {
+        "onOff": {
+          "parameters": {
+            "lightparam": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "state": {
+        "light": {
+          "isRequired": true,
+          "type": "boolean"
+        },
+        "temperature": {
+          "isRequired": true,
+          "type": "number"
+        },
+        "humidity": {
+          "isRequired": true,
+          "type": "number"
+        }
+      }
+    }
+  }
+}
+    </code>
+  </pre>
 </div>
 
 <h4 id="components-1">Components</h4>
@@ -355,49 +367,65 @@ Using this information you can know information about the device states, retriev
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl 192.168.0.11/components
 </code></pre>
 </div>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-  <span class="s2">"fingerprint"</span><span class="err">:</span> <span class="mi">135246</span><span class="p">,</span>
-  <span class="s2">"components"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"RoomA"</span><span class="err">:</span> <span class="p">{</span>
-      <span class="s2">"traits"</span><span class="err">:</span> <span class="p">[</span>
-        <span class="s2">"room"</span>
-      <span class="p">],</span>
-      <span class="s2">"state"</span><span class="err">:</span> <span class="p">{</span>
-        <span class="s2">"room"</span><span class="err">:</span> <span class="p">{</span>
-          <span class="s2">"light"</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
-          <span class="s2">"temperature"</span><span class="err">:</span> <span class="mi">25</span><span class="p">,</span>
-          <span class="s2">"humidity"</span><span class="err">:</span> <span class="mi">33</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
 
-</code></pre>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+  {
+  "fingerprint": 135246,
+  "components": {
+    "RoomA": {
+      "traits": [
+        "room"
+      ],
+      "state": {
+        "room": {
+          "light": true,
+          "temperature": 25,
+          "humidity": 33
+        }
+      }
+    }
+  }
+}
+    </code>
+  </pre>
 </div>
+
 <h4 id="command-execution">Command Execution</h4>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X POST -d <span class="s1">'{"name":"room.onOff","component":"RoomA","parameters":{"lightparam":true}}'</span> 192.168.0.11/commands/execute
-</code></pre>
+<div class="language-bash highlighter-rouge">
+  <pre class="highlight">
+    <code>
+    curl -H "Content-Type: application/json" -X POST -d 
+    '{"name":"room.onOff","component":"RoomA","parameters":{"lightparam":true}}'
+    192.168.0.11/commands/execute</code>
+  </pre>
 </div>
 
 <h5 id="response-success">Response success</h5>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-  <span class="s2">"state"</span><span class="err">:</span> <span class="s2">"done"</span><span class="p">,</span>
-  <span class="s2">"results"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"actualBrilightness"</span><span class="err">:</span> <span class="mi">48</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+    {
+      "state": "done",
+      "results": {
+        "actualBrilightness": 48
+      }
+    }</code>
+  </pre>
 </div>
 
 <h5 id="response-fail">Response fail</h5>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
-  <span class="s2">"state"</span><span class="err">:</span> <span class="s2">"error"</span><span class="p">,</span>
-  <span class="s2">"error"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="s2">"code"</span><span class="err">:</span> <span class="s2">"invalidBrilightness"</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+    {
+      "state": "error",
+      "error": {
+        "code": "invalidBrilightness"
+      }
+    }</code>
+  </pre>
 </div>
 
 <h3 id="ble-package-encapsulation">BLE package encapsulation</h3>
