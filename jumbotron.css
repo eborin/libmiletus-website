@@ -68,3 +68,23 @@ body {
 .navbar-brand{
   color:#ffffff;
 }
+
+.components{
+
+}
+
+.traits{
+  padding-left: 5%;
+}
+
+.commands{
+  padding-left: 10%;
+}
+
+.parameters{
+  padding-left: 15%;
+}
+
+.states{
+  padding-left: 10%;
+}

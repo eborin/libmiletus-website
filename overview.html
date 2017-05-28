@@ -13,7 +13,7 @@
     <!-- TODO: Replace this icon. -->
     <link rel="icon" href="./images/icone.ico">
 
-    <title>LibMiletus Overview</title>
+    <title>Overview</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -69,32 +69,25 @@
     <div class="jumbotron2">
       <div class="container">
       <h1 id="overview">Overview</h1>
-<p>Every device that runs the library holds an instance of MiletusDevice.</p>
+        <p>Every device that runs the library holds an instance of MiletusDevice.</p>
+        <p>Traits are loaded from a JSON description.
+        The user has to load a provider instance to the libMiletus instance.
+        The user also loads one or more instances of communication interfaces.
+        A list containing the name of traits is used to “load” a new component.</p>
 
-<p>Traits are loaded from a JSON description.
-The user has to load a provider instance to the libMiletus instance.
-The user also loads one or more instances of communication interfaces.
-A list containing the name of traits is used to “load” a new component.</p>
-
-<p><img src="./images/LibMiletus_Arch.png" alt="Drawing" style="width: 600px;" /></p>
+        <p style="text-align:center;"><img src="./images/LibMiletus_Arch.png" alt="Drawing" style="width: 600px;height: 456px" /></p>
 
 <h2 id="concepts">Concepts</h2>
-<h4 id="components">Components</h4>
-<p>Components are abstractions to hold a set of one or more Traits.</p>
-<h4 id="traits">Traits</h4>
-<p>A Trait describes specific characteristics from modules of the device.</p>
-<h5 id="commands">Commands</h5>
-<p>Commands are held by Traits, exposing procedures that can be invoked.
-This commands can have arguments, that is passed as a Parameter.</p>
-<h6 id="parameters">Parameters</h6>
-<p>Each parameter has a name and a set of properties like type, range.</p>
-<h5 id="states">States</h5>
-<p>Each Trait can describe a set of one or more States.
-The State is described in the Tait JSON.
+<p class="components"><b>Components</b> are abstractions to hold a set of one or more Traits.</p>
+<p class="traits">A <b>Trait</b> describes specific characteristics from modules of the device.</p>
+<p class="commands">Traits have <b>Commands</b>, exposing procedures that can be invoked.
+This commands can have arguments, that is passed as a <i>parameter</i>.</p>
+<p class="parameters">Each <b>parameter</b> has a name and a set of properties like type, range.</p>
+<p class="states">Traits also have <b>States</b>, which is described on the trait JSON.
 This description contains the type of the value and can include the range of possible values.
 Components expose the current value of a State.</p>
 
-<h4 id="example">Example</h4>
+<h2 id="example">Example</h4>
 <p>Exemplifying an air conditioning system that contains a display.
 For this device we have the components:</p>
 <ul>
