@@ -34,6 +34,21 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    .code-information{
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 17px;
+    }
+
+    #code-broker{
+      border: 0px;
+      text-align: center;
+    }
+
+    .example-broken{
+      height: 42.5ex;
+    }
+    </style>
   </head>
 
   <body>
@@ -421,8 +436,399 @@ Using this information you can know information about the device states, retriev
   </pre>
 </div>
 
+<h3 id="mqtt-package-encapsulation">MQTT package encapsulation</h3>
+<p>Traits, Info, and Components are retained in the broker. Its values are published at the startup of the device and on each update.</p>
+
+<p>A message from the IoT device to the client is published in the "out" subtopic.
+At the opposite way, it is published in "in" subtopic.</p>
+
+<p>In each subtopic is published a command or a status always complaining the libMiletus JSON format.</p>
+
+<h4 id="mqtt-interaction-client-broker">Interaction between Client and Broker</h4>
+
+<div class="container">
+<div class="row">
+  <div class=" example-broken btn btn-info col text-center col-lg-2">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  Client</div>
+  <div class="col text-center col-lg-2">
+  <div class="row">
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    </div>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    </div>
+    <br>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    </div>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+
+    </div>
+    <br>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    </div>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+  </div>
+  <br>
+    <div class="row">
+  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+  </div>
+    <div class="row">
+  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+  </div>
+    <div class="row">
+  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+  </div>
+    <div class="row">
+  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+  </div>
+  </div>
+  <div class="col text-center col-lg-4">
+    <div class="row">
+      (subscribe) RoomB/out/info
+    </div>
+    <div class="row">
+      JSON info
+    </div>
+    <br>
+    <div class="row">
+      (subscribe) RoomB/out/traits
+    </div>
+    <div class="row">
+      JSON traits
+
+    </div>
+    <br>
+    <div class="row">
+      (subscribe) RoomB/out/components
+    </div>
+    <div class="row">
+      JSON components
+  </div>
+  <br>
+    <div class="row">
+      (publish) RoomB/in/commands/execute
+  </div>
+    <div class="row">
+      (subscribe) RoomB/out/commands/execute
+  </div>
+    <div class="row">
+      (publish) RoomB/in/commands/execute
+  </div>
+    <div class="row">
+      JSON “done” (“/out” publish)
+  </div>
+</div>
+  <div class="col text-center col-lg-2">
+  <div class="row">
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    </div>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    </div>
+    <br>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    </div>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+
+    </div>
+    <br>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    </div>
+    <div class="row">
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+  </div>
+  <br>
+    <div class="row">
+  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+  </div>
+    <div class="row">
+  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+  </div>
+    <div class="row">
+  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+  </div>
+    <div class="row">
+  <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+  </div>
+  </div>
+  <div class="example-broken btn btn-info col text-center col-lg-2">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  Broker</div>
+</div>
+</div>
+
+<h4 id="mqtt-subtopics">Subtopics:</h4>
+<p>(The scratches mean that they have not yet been implemented)</p>
+
+<p>
+DeviceID/{in/out}/commands/execute <br>
+<strike>DeviceID/{in/out}/commands/status</strike> <br>
+<strike>DeviceID/{in/out}/commands/list</strike> <br>
+<strike>DeviceID/{in/out}/commands/cancel</strike> <br>
+DeviceID/{out}/traits <br>
+DeviceID/{out}/info <br>
+DeviceID/{out}/components
+</p>
+
+<h4 id="mqtt-examples">Examples:</h4>
+
+<h5 id="out-info">Room_B/out/info:</h5>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+{
+  "Id": "Room_B",
+  "Name": "Room_B",
+  "Description": "Meeting room device",
+  "ModelManifestId": "LIBMI"
+}
+    </code>
+  </pre>
+</div>
+<h5 id="out-traits">Room_B/out/traits:</h5>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+{
+  "fingerprint": "00000000",
+  "traits": {
+    "room": {
+      "commands": {
+        "onOff": {
+          "minimalRole": "user",
+          "parameters": {}
+        },
+        "sendTVCommand": {
+          "minimalRole": "user",
+          "parameters": {
+            "TVCommand": {
+              "type": "string",
+              "enum": [
+                "mute",
+                "onOff",
+                "up",
+                "down",
+                "right",
+                "left",
+                "ok",
+                "menu",
+                "source",
+                "exit",
+                "vol_up",
+                "vol_down"
+              ]
+            }
+          }
+        }
+      },
+      "state": {
+        "lightness": {
+          "isRequired": true,
+          "type": "number"
+        },
+        "temperature": {
+          "isRequired": true,
+          "type": "number"
+        },
+        "humidity": {
+          "isRequired": true,
+          "type": "number"
+        }
+      }
+    }
+  }
+}
+    </code>
+  </pre>
+</div>
+<h5 id="out-components">Room_B/out/components:</h5>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+{
+  "fingerprint": "00015FB3",
+  "components": {
+    "RoomB": {
+      "traits": [
+        "room"
+      ],
+      "state": {
+        "room": {
+          "humidity": 44,
+          "lightness": 1.973048,
+          "temperature": 24
+        }
+      }
+    }
+  }
+}
+    </code>
+  </pre>
+</div>
+<h5 id="in-commands-execute">Room_B/in/commands/execute:</h5>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+{
+  "component": "Room",
+  "name": "room.onOff",
+  "parameters": {}
+}
+    </code>
+  </pre>
+</div>
+<h5 id="out-commands-execute">Room_B/out/commands/execute:</h5>
+<div class="language-javascript highlighter-rouge">
+  <pre class="highlight">
+    <code>
+{
+  "state": "done"
+}
+    </code>
+  </pre>
+</div>
+
+
 <h3 id="ble-package-encapsulation">BLE package encapsulation</h3>
-<p>Soon</p>
+<p><strong>Info Command Communication (</strong><strong>BLE</strong><strong> only)</strong></p>
+<table width="80%" align="center" border="1">
+<tbody>
+<tr>
+<td>
+<p><strong>Source</strong></p>
+</td>
+<td>
+<p><strong>Packet</strong></p>
+</td>
+<td>
+<p><strong>Destination</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">client</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">length=0018B</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">libMiletus</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">client</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">/info?offset=0018B</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">libMiletus</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">libMiletus</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">length=1234B</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">client</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">libMiletus</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">json={...}&amp;offset=1234B</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">client</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong><strong>&nbsp;</strong></strong></p>
+<p><strong>Execute Command Communication (</strong><strong>BLE</strong><strong> only)</strong></p>
+<table width="80%" align="center" border="1">
+<tbody>
+<tr>
+<td>
+<p><strong>Source</strong></p>
+</td>
+<td>
+<p><strong>Packet</strong></p>
+</td>
+<td>
+<p><strong>Destination</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">client</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">length=0107B</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">libMiletus</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">client</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">/execute/command?application=json&amp;value={...}&amp;offset=0107B</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">libMiletus</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">libMiletus</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">length=4321B</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">client</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-weight: 400;">libMiletus</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">json={...}&amp;offset=4321B</span></p>
+</td>
+<td>
+<p><span style="font-weight: 400;">client</span></p>
+</td>
+</tr>
+</tbody>
+</table>
 
       </div> <!-- container -->
     </div> <!-- jumbotron2 -->
