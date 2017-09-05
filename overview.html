@@ -436,13 +436,17 @@ Using this information you can know information about the device states, retriev
   </pre>
 </div>
 
+<br>
+
 <h3 id="mqtt-package-encapsulation">MQTT package encapsulation</h3>
-<p>Traits, Info, and Components are retained in the broker. Its values are published at the startup of the device and on each update.</p>
+<h5><p>Traits, Info, and Components are retained in the broker. Its values are published at the startup of the device and on each update.</p>
 
 <p>A message from the IoT device to the client is published in the "out" subtopic.
 At the opposite way, it is published in "in" subtopic.</p>
 
-<p>In each subtopic is published a command or a status always complaining the libMiletus JSON format.</p>
+<p>In each subtopic is published a command or a status always complaining the libMiletus JSON format.</p></h5>
+
+<br>
 
 <h4 id="mqtt-interaction-client-broker">Interaction between Client and Broker</h4>
 
@@ -486,9 +490,6 @@ At the opposite way, it is published in "in" subtopic.</p>
   <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
   </div>
     <div class="row">
-  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-  </div>
-    <div class="row">
   <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
   </div>
   </div>
@@ -515,9 +516,6 @@ At the opposite way, it is published in "in" subtopic.</p>
       JSON components
   </div>
   <br>
-    <div class="row">
-      (publish) RoomB/in/commands/execute
-  </div>
     <div class="row">
       (subscribe) RoomB/out/commands/execute
   </div>
@@ -558,9 +556,6 @@ At the opposite way, it is published in "in" subtopic.</p>
   <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
   </div>
     <div class="row">
-  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-  </div>
-    <div class="row">
   <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
   </div>
   </div>
@@ -575,8 +570,10 @@ At the opposite way, it is published in "in" subtopic.</p>
 </div>
 </div>
 
+<br>
+
 <h4 id="mqtt-subtopics">Subtopics:</h4>
-<p>(The scratches mean that they have not yet been implemented)</p>
+<h5><p>(The scratches mean that they have not yet been implemented)</p>
 
 <p>
 DeviceID/{in/out}/commands/execute <br>
@@ -586,7 +583,9 @@ DeviceID/{in/out}/commands/execute <br>
 DeviceID/{out}/traits <br>
 DeviceID/{out}/info <br>
 DeviceID/{out}/components
-</p>
+</p></h5>
+
+<br>
 
 <h4 id="mqtt-examples">Examples:</h4>
 
@@ -706,6 +705,22 @@ DeviceID/{out}/components
   </pre>
 </div>
 
+<br>
+
+<h4 id="mqtt-miletusapp">MiletusApp:</h4>
+<h5><p>In the main screen menu, there is the option "MQTT Settings", that gives access to the two firsts screenshots below.<br>
+The first one shows the status "Not connected", and in the second one shows the status "Connection OK".<br>
+The third one show the dialog where you can add a device (to show it, just press the "+" in the red circle).<br>
+To add, just write the device name, that you can find it in the source code (macro DEVICE_NAME).
+
+</p>
+
+<p style="text-align:center;">
+  <img src="./images/miletus_app_4.png" alt="Miletus application image 4" style="width: 350px;height: 622px"/>
+  <img src="./images/miletus_app_5.png" alt="Miletus application image 5" style="width: 350px;height: 622px"/>
+  <img src="./images/miletus_app_6.png" alt="Miletus application image 6" style="width: 350px;height: 622px"/></p>
+
+<br>
 
 <h3 id="ble-package-encapsulation">BLE package encapsulation</h3>
 <p><strong>Info Command Communication (</strong><strong>BLE</strong><strong> only)</strong></p>
