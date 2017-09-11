@@ -191,7 +191,7 @@
         
         <pre><code class="language-Upload```">Connecting...<br />---<br />Connected to &lt;SSID&gt;<br />IP address: &lt;IP Address&gt;</code></pre>
     <h3 id="run-demo-curl">5b - Interacting with the IoT device using the curl command</h3>
-        <p>Run the following command on the terminal, changing the ```IP Address``` for the IP and the port of your board, by default, the port is 80:</p>
+        <p>Run the following command on the terminal, changing the ```IP Address``` for the IP and the port of your board, by default, the port is 1969:</p>
         <div class="highlighter-rouge"><pre class="highlight"><code>$ curl -H "Content-Type: application/json" -X POST -d '{"name":"lamp.toggleLED","component":"lamp","parameters":{}}' &lt;IP Address&gt;:&lt;Port&gt;/commands/execute</code></pre>
         </div>
         <p>Make sure that your device and your computer are on the same network.</p>
