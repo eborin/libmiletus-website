@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Lib Miletus website">
+    <meta name="author" content="Gustavo Frederico Temple Pedrosa">
+
+    <!-- TODO: Replace this icon. -->
+    <link rel="icon" href="./images/icone.ico">
+
+    <title>Android</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./bootstrap-3.3.7/docs/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+    <link href="navbar-fixed-top.css" rel="stylesheet">
+    <link href="shi_default.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="./bootstrap-3.3.7/docs/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" >LibMiletus</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./getting_started.html">Getting Started</a></li>
+            <li><a href="./download.html">Download</a></li>
+            <li><a href="./supported_platforms.html">Supported Platforms</a></li>
+            <li><a href="./how_to_contribute.html">How to contribute</a></li>
+            <li><a href="./overview.html">Overview</a></li>
+            <li class="active"><a href="#">Android</a></li>
+            <li><a href="./wish_list.html">Wish list</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+
+    <div class="jumbotron2">
+      <div class="container">
+
+	<h1>Android</h1>
+
+<br>
+
+<h2> Miletus Android Library </h2>
+
+<br>
+
+<h3> Architecture overview </h3>
+<h6> Miletus Android Library consists of an AAR project (Android Archive Library) with wrappers and callbacks/listeners that return asynchronously results from libMiletus, flashed on a device. </h6>
+
+<br>
+
+<h3> Concepts </h3>
+<h6> Wrappers & Callbacks/Listeners </h6>
+
+<br>
+
+<h4> Wrappers </h4>
+<h6> Wrappers are abstractions to hold objects from libMiletus. </h6>
+
+<h5> <b> DeviceWrapper </b> </h5>
+<h6> DeviceWrapper provides two informations, the first is the TinyDevice object, which has all the necessary information to communicate via Wifi/Lan with the device that contains libMiletus, the second is the Android BluetoothDevice, object used for GATT/BLE communication. </h6>
+
+<h5> <b> ComponentWrapper </b> </h5>
+<h6>  ComponentWrapper provides information about commands and states of a libMiletus device.</h6>
+
+<br>
+
+<h4> Callbacks/Listeners </h4>
+
+<h5> - Commons </h5>
+
+<h5> <b> Info Response Interface </b> </h5>
+<h6> Return an object that represents the phisical device running the libMiletus.</h6>
+
+<h5> <b> Traits Response Interface </b> </h5>
+<h6> Return a set of ComponentWrapper.</h6>
+
+<h5> <b> Components Response Interface </b> </h5>
+<h6> Return values with the current status of the device, that can be:
+
+<ul>
+<li> string: Alphanumeric status value. </li>
+<li> integer: Integer number status value. </li>
+<li> number: Float point status value. </li>
+<li> boolean: Boolean status value. </li>
+</ul>
+
+<h5> <b> Execute commands </b> </h5>
+<h6> Return success or fail after the execution of a command. </h6>
+
+<h5> - BLE/GATT specific </h5>
+
+<h5> <b> Ble Resolved </b> </h5>
+<h6> Returns an Android BluetoothDevice and its RSSI every discovery. </h6>
+
+<br>
+
+<h3> Usage </h3>
+<h6> Wifi/Lan & BLE/GATT </h6>
+
+<br>
+
+<h4> Wifi/Lan </h4>
+
+<h5> Start </h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li>NsdHelper<span class="sh_symbol">.</span><span class="sh_function">getInstance</span><span class="sh_symbol">().</span><span class="sh_function">discoverServices</span><span class="sh_symbol">();</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">NsdHelper.getInstance().discoverServices();</pre></div></div>
+
+<h5> Connect </h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li>NsdHelper<span class="sh_symbol">.</span><span class="sh_function">getInstance</span><span class="sh_symbol">().</span><span class="sh_function">setOnInfoResponse</span><span class="sh_symbol">(</span>onInfoResponse<span class="sh_symbol">);</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">NsdHelper.getInstance().setOnInfoResponse(onInfoResponse);</pre></div></div>
+
+<h5> Stop </h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li>NsdHelper<span class="sh_symbol">.</span><span class="sh_function">getInstance</span><span class="sh_symbol">().</span><span class="sh_function">stopDiscovery</span><span class="sh_symbol">();</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">NsdHelper.getInstance().stopDiscovery();</pre></div></div>
+
+<br>
+
+<h4> BLE/GATT </h4>
+
+<h5> Start </h5>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_usertype">Intent</span><span class="sh_normal"> </span>intent <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">Intent</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">,</span> BleScanService<span class="sh_symbol">.</span><span class="sh_keyword">class</span><span class="sh_symbol">);</span></li><li><span class="sh_function">startService</span><span class="sh_symbol">(</span>intent<span class="sh_symbol">);</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">Intent intent = new Intent(this, BleScanService.class);
+startService(intent);</pre></div></div>
+
+<h5> Connect </h5>
+
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li>    <span class="sh_keyword">private</span> <span class="sh_keyword">final</span> <span class="sh_usertype">ServiceConnection</span><span class="sh_normal"> </span>mConnection <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> <span class="sh_function">ServiceConnection</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>        @Override</li><li>        <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">onServiceConnected</span><span class="sh_symbol">(</span><span class="sh_usertype">ComponentName</span><span class="sh_normal"> </span>className<span class="sh_symbol">,</span></li><li>                                       <span class="sh_usertype">IBinder</span><span class="sh_normal"> </span>service<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>            BleScanService<span class="sh_symbol">.</span><span class="sh_usertype">LocalBinder</span><span class="sh_normal"> </span>binder <span class="sh_symbol">=</span> <span class="sh_symbol">(</span>BleScanService<span class="sh_symbol">.</span>LocalBinder<span class="sh_symbol">)</span> service<span class="sh_symbol">;</span></li><li>            binder<span class="sh_symbol">.</span><span class="sh_function">setOnBleInfoResponse</span><span class="sh_symbol">(</span>onBleInfoResponse<span class="sh_symbol">);</span></li><li>            binder<span class="sh_symbol">.</span><span class="sh_function">setOnBleResolved</span><span class="sh_symbol">(</span>nearDeviceHolder<span class="sh_symbol">);</span></li><li>            <span class="sh_function">unbindService</span><span class="sh_symbol">(</span>mConnection<span class="sh_symbol">);</span></li><li>        <span class="sh_cbracket">}</span></li><li></li><li>        @Override</li><li>        <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">onServiceDisconnected</span><span class="sh_symbol">(</span><span class="sh_usertype">ComponentName</span><span class="sh_normal"> </span>componentName<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>        <span class="sh_cbracket">}</span></li><li>    <span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">    private final ServiceConnection mConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            BleScanService.LocalBinder binder = (BleScanService.LocalBinder) service;
+            binder.setOnBleInfoResponse(onBleInfoResponse);
+            binder.setOnBleResolved(nearDeviceHolder);
+            unbindService(mConnection);
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+        }
+    };</pre></div></div>
+
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_function">bindService</span><span class="sh_symbol">(</span>intent<span class="sh_symbol">,</span> mConnection<span class="sh_symbol">,</span> Context<span class="sh_symbol">.</span>BIND_AUTO_CREATE<span class="sh_symbol">);</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">bindService(intent, mConnection, Context.BIND_AUTO_CREATE);</pre></div></div>
+
+<h5> Stop </h5>
+
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_function">stopService</span><span class="sh_symbol">(</span><span class="sh_keyword">new</span> <span class="sh_function">Intent</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">,</span> BleScanService<span class="sh_symbol">.</span><span class="sh_keyword">class</span><span class="sh_symbol">));</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">stopService(new Intent(this, BleScanService.class));</pre></div></div>
+
+<br><br>
+
+<h2> Miletus Android App </h2>
+<h6> Demonstrates basic usage of the Miletus Android Library. </h6>
+
+<h3> Build </h3>
+<h6> This sample uses the Gradle build system. To build this project, use the `gradlew build` command or import the project into Android Studio. </h6>
+
+<h3> Run </h3>
+<h6> To run this sample you will need at least one Android device and one LibMiletus compatible device, for example an esp8266 development board. </h6>
+
+<h3> Usage </h3>
+
+<h4> Discover a LibMiletus device </h4>
+
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li>    <span class="sh_keyword">private</span> <span class="sh_keyword">final</span> SendInfoGattCommand<span class="sh_symbol">.</span><span class="sh_usertype">OnBleInfoResponse</span><span class="sh_normal"> </span>onBleInfoResponse <span class="sh_symbol">=</span> <span class="sh_keyword">new</span> SendInfoGattCommand<span class="sh_symbol">.</span><span class="sh_function">OnBleInfoResponse</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>        @Override</li><li>        <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">onBleInfoResponse</span><span class="sh_symbol">(</span><span class="sh_keyword">final</span> <span class="sh_usertype">DeviceWrapper</span><span class="sh_normal"> </span>device<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>            <span class="sh_keyword">if</span> <span class="sh_symbol">(</span>mDeviceListAdapter<span class="sh_symbol">.</span><span class="sh_function">containsBle</span><span class="sh_symbol">(</span>device<span class="sh_symbol">)</span> <span class="sh_symbol">==</span> <span class="sh_keyword">null</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>                <span class="sh_function">addDevice</span><span class="sh_symbol">(</span>device<span class="sh_symbol">);</span></li><li>                Log<span class="sh_symbol">.</span><span class="sh_function">i</span><span class="sh_symbol">(</span>TAG<span class="sh_symbol">,</span> <span class="sh_string">"Device BLE added: "</span> <span class="sh_symbol">+</span> device<span class="sh_symbol">.</span><span class="sh_function">getDevice</span><span class="sh_symbol">().</span><span class="sh_function">getName</span><span class="sh_symbol">());</span></li><li>            <span class="sh_cbracket">}</span> <span class="sh_keyword">else</span> <span class="sh_cbracket">{</span></li><li>                Log<span class="sh_symbol">.</span><span class="sh_function">e</span><span class="sh_symbol">(</span>TAG<span class="sh_symbol">,</span> <span class="sh_string">"Device BLE not added: "</span> <span class="sh_symbol">+</span> device<span class="sh_symbol">.</span><span class="sh_function">getDevice</span><span class="sh_symbol">().</span><span class="sh_function">getName</span><span class="sh_symbol">());</span></li><li>            <span class="sh_cbracket">}</span></li><li>        <span class="sh_cbracket">}</span></li><li>    <span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">    private final SendInfoGattCommand.OnBleInfoResponse onBleInfoResponse = new SendInfoGattCommand.OnBleInfoResponse() {
+        @Override
+        public void onBleInfoResponse(final DeviceWrapper device) {
+            if (mDeviceListAdapter.containsBle(device) == null) {
+                addDevice(device);
+                Log.i(TAG, "Device BLE added: " + device.getDevice().getName());
+            } else {
+                Log.e(TAG, "Device BLE not added: " + device.getDevice().getName());
+            }
+        }
+    };</pre></div></div>
+<br>
+<h4> Get Traits/Components from a LibMiletus device </h4>
+
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_keyword">new</span> <span class="sh_function">SendComponentsGattCommand</span><span class="sh_symbol">(</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span><span class="sh_function">getContext</span><span class="sh_symbol">(),</span></li><li>                    <span class="sh_keyword">this</span><span class="sh_symbol">,</span></li><li>                    mDevice<span class="sh_symbol">,</span></li><li>                    components<span class="sh_symbol">).</span><span class="sh_function">execute</span><span class="sh_symbol">();</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">new SendComponentsGattCommand(this.getContext(),
+                    this,
+                    mDevice,
+                    components).execute();</pre></div></div>
+
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li>    @Override</li><li>    <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">onComponentsResponse</span><span class="sh_symbol">(</span><span class="sh_keyword">final</span> <span class="sh_usertype">Set&lt;ComponentWrapper&gt;</span><span class="sh_normal"> </span>components<span class="sh_symbol">,</span></li><li>                                     <span class="sh_keyword">final</span> <span class="sh_usertype">Set&lt;StateWrapper&gt;</span><span class="sh_normal"> </span>states<span class="sh_symbol">,</span></li><li>                                     <span class="sh_keyword">final</span> <span class="sh_usertype">TinyDevice</span><span class="sh_normal"> </span>device<span class="sh_symbol">,</span></li><li>                                     <span class="sh_keyword">final</span> <span class="sh_type">boolean</span> isSuccess<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>        <span class="sh_keyword">if</span> <span class="sh_symbol">(!</span>isSuccess<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>            Log<span class="sh_symbol">.</span><span class="sh_function">e</span><span class="sh_symbol">(</span>TAG<span class="sh_symbol">,</span> <span class="sh_string">"Failure querying for state."</span><span class="sh_symbol">);</span></li><li>            <span class="sh_keyword">if</span> <span class="sh_symbol">(</span>ComponentsFragment<span class="sh_symbol">.</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span><span class="sh_function">getView</span><span class="sh_symbol">()</span> <span class="sh_symbol">!=</span> <span class="sh_keyword">null</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>                Snackbar<span class="sh_symbol">.</span><span class="sh_function">make</span><span class="sh_symbol">(</span>ComponentsFragment<span class="sh_symbol">.</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span><span class="sh_function">getView</span><span class="sh_symbol">(),</span></li><li>                        R<span class="sh_symbol">.</span>string<span class="sh_symbol">.</span>error_querying_state<span class="sh_symbol">,</span></li><li>                        Snackbar<span class="sh_symbol">.</span>LENGTH_LONG<span class="sh_symbol">)</span></li><li>                        <span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li>            <span class="sh_cbracket">}</span></li><li>            <span class="sh_keyword">return</span><span class="sh_symbol">;</span></li><li>        <span class="sh_cbracket">}</span> <span class="sh_keyword">else</span> <span class="sh_cbracket">{</span></li><li>            Log<span class="sh_symbol">.</span><span class="sh_function">i</span><span class="sh_symbol">(</span>TAG<span class="sh_symbol">,</span> <span class="sh_string">"Success getting states: "</span> <span class="sh_symbol">+</span> components<span class="sh_symbol">.</span><span class="sh_function">size</span><span class="sh_symbol">());</span></li><li>        <span class="sh_cbracket">}</span></li><li></li><li>        <span class="sh_function">addComponents</span><span class="sh_symbol">(</span>components<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">    @Override
+    public void onComponentsResponse(final Set&lt;ComponentWrapper&gt; components,
+                                     final Set&lt;StateWrapper&gt; states,
+                                     final TinyDevice device,
+                                     final boolean isSuccess) {
+        if (!isSuccess) {
+            Log.e(TAG, "Failure querying for state.");
+            if (ComponentsFragment.this.getView() != null) {
+                Snackbar.make(ComponentsFragment.this.getView(),
+                        R.string.error_querying_state,
+                        Snackbar.LENGTH_LONG)
+                        .show();
+            }
+            return;
+        } else {
+            Log.i(TAG, "Success getting states: " + components.size());
+        }
+
+        addComponents(components);
+    }</pre></div></div>
+
+<br>
+
+<h4> Execute command </h4>
+
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li> <span class="sh_keyword">new</span> <span class="sh_function">SendExecuteCommand</span><span class="sh_symbol">(</span>mDevice<span class="sh_symbol">.</span><span class="sh_function">getDevice</span><span class="sh_symbol">(),</span></li><li>                    executeCommandResponse<span class="sh_symbol">,</span></li><li>                    command<span class="sh_symbol">).</span><span class="sh_function">execute</span><span class="sh_symbol">();</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable=""> new SendExecuteCommand(mDevice.getDevice(),
+                    executeCommandResponse,
+                    command).execute();</pre></div></div>
+
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_java snippet-formatted sh_sourceCode"><ol class="snippet-num"><li>    <span class="sh_keyword">private</span> <span class="sh_keyword">final</span> SendExecuteCommand<span class="sh_symbol">.</span><span class="sh_usertype">OnExecuteCommandResponse</span><span class="sh_normal"> </span>executeCommandResponse <span class="sh_symbol">=</span></li><li>            <span class="sh_keyword">new</span> SendExecuteCommand<span class="sh_symbol">.</span><span class="sh_function">OnExecuteCommandResponse</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>                @Override</li><li>                <span class="sh_keyword">public</span> <span class="sh_type">void</span> <span class="sh_function">onExecuteCommandResponse</span><span class="sh_symbol">(</span><span class="sh_type">boolean</span> isSuccess<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>                    <span class="sh_keyword">if</span> <span class="sh_symbol">(!</span>isSuccess<span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>                        Log<span class="sh_symbol">.</span><span class="sh_function">e</span><span class="sh_symbol">(</span>TAG<span class="sh_symbol">,</span> <span class="sh_string">"Failure setting state."</span><span class="sh_symbol">);</span></li><li>                        <span class="sh_keyword">if</span> <span class="sh_symbol">(</span>CommandsFragment<span class="sh_symbol">.</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span><span class="sh_function">getView</span><span class="sh_symbol">()</span> <span class="sh_symbol">!=</span> <span class="sh_keyword">null</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>                            Snackbar<span class="sh_symbol">.</span><span class="sh_function">make</span><span class="sh_symbol">(</span>CommandsFragment<span class="sh_symbol">.</span><span class="sh_keyword">this</span><span class="sh_symbol">.</span><span class="sh_function">getView</span><span class="sh_symbol">(),</span></li><li>                                    R<span class="sh_symbol">.</span>string<span class="sh_symbol">.</span>error_setting_state<span class="sh_symbol">,</span></li><li>                                    Snackbar<span class="sh_symbol">.</span>LENGTH_LONG<span class="sh_symbol">)</span></li><li>                                    <span class="sh_symbol">.</span><span class="sh_function">show</span><span class="sh_symbol">();</span></li><li>                        <span class="sh_cbracket">}</span></li><li>                    <span class="sh_cbracket">}</span> <span class="sh_keyword">else</span> <span class="sh_cbracket">{</span></li><li>                        Log<span class="sh_symbol">.</span><span class="sh_function">i</span><span class="sh_symbol">(</span>TAG<span class="sh_symbol">,</span> <span class="sh_string">"Success setting state!"</span><span class="sh_symbol">);</span></li><li>                    <span class="sh_cbracket">}</span></li><li>                <span class="sh_cbracket">}</span></li><li>            <span class="sh_cbracket">}</span><span class="sh_symbol">;</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">    private final SendExecuteCommand.OnExecuteCommandResponse executeCommandResponse =
+            new SendExecuteCommand.OnExecuteCommandResponse() {
+                @Override
+                public void onExecuteCommandResponse(boolean isSuccess) {
+                    if (!isSuccess) {
+                        Log.e(TAG, "Failure setting state.");
+                        if (CommandsFragment.this.getView() != null) {
+                            Snackbar.make(CommandsFragment.this.getView(),
+                                    R.string.error_setting_state,
+                                    Snackbar.LENGTH_LONG)
+                                    .show();
+                        }
+                    } else {
+                        Log.i(TAG, "Success setting state!");
+                    }
+                }
+            };</pre></div></div>
+
+<br>
+
+<h3> Screens </h3>
+
+<h4> Main screen </h4>
+
+<h6>In main screen the user can see a list of discovered devices:</h6>
+
+<p style="text-align:center;">
+  <img src="./images/main_screen1.png" alt="Main screen" style="width: 350px;height: 622px"/>
+  <img src="./images/main_screen2.png" alt="Main screen" style="width: 350px;height: 622px"/></p>
+
+<br>
+
+<h4> Device screen </h4>
+
+<h6> The Device screen shows the states, and it is possible to show and hide more status about the device: </h6>
+
+<p style="text-align:center;">
+  <img src="./images/device_screen1.png" alt="Device screen" style="width: 350px;height: 622px"/>
+  <img src="./images/device_screen2.png" alt="Device screen" style="width: 350px;height: 622px"/></p>
+
+<br>
+
+<h4> Notification </h4>
+
+<h6> Based on a nearby BLE device, a notification is showed: </h6>
+
+<p style="text-align:center;">
+  <img src="./images/notification.png" alt="Notification" style="width: 350px;height: 622px"/></p>
+
+<br>
+
+<h4> Commands screen </h4>
+
+<h6> Device interaction in the commands screen: </h6>
+
+<p style="text-align:center;">
+  <img src="./images/commands_screen.png" alt="Commands screen" style="width: 350px;height: 622px"/></p>
+
+      </div> <!-- container -->
+    </div> <!-- jumbotron2 -->
+
+<!--
+      <footer>
+        <p>&copy; 2017 Edson Borin.</p>
+      </footer>
+-->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="./bootstrap-3.3.7/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="./bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./bootstrap-3.3.7/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="shi_jquery.min.js"></script>
+  </body>
+</html>
