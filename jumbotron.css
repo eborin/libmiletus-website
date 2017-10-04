@@ -55,6 +55,10 @@ body {
   color: #043755;
 }
 
+.introduction p {
+  color: #043755;
+}
+
 .normal-letter{
 }
 
@@ -87,4 +91,8 @@ body {
 
 .states{
   padding-left: 10%;
+}
+
+.video{
+  float: right;
 }
