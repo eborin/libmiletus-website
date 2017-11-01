@@ -178,7 +178,7 @@
   <th>Recomended Version</th>
 </tr>
 <tr> 
-  <td>PubSubClient library</td>
+  <td>PubSubClient library **</td>
   <td>Nick O'Leary</td>
   <td>2.6.0</td>
 </tr>
@@ -210,7 +210,23 @@
 </table>
 <br>
  <small>* Required just for git version.</small>
-  </p>
+</p>
+<small><p>
+  ** To make the MQTT working in the Arduino environment, you must change the MQTT_MAX_PACKET_SIZE in the PubSubClient library.
+  <br>
+  Open the file "…/Arduino/libraries/pubSubClient/src/PubSubClient.h" and change the following line:
+  <br>
+  From:
+  <br>
+  #define MQTT_MAX_PACKET_SIZE 128
+  <br>
+  To:
+  <br>
+  #define MQTT_MAX_PACKET_SIZE 1024
+</p>
+</small>
+
+
 
     <h2 id="install-libmiletus">4 - Installing the LibMiletus via Arduino IDE menu</h2>
 
@@ -349,6 +365,24 @@ We bypass this problem installing the git version instead of the standard instal
     After you finish editing your script file, run the NodeMCU
     tests again to make sure everything is still working.
   </p>
+
+  <h3 id="fix-mqtt">MQTT not publishing</h3>
+<p>
+  To make the MQTT working in the Arduino environment, you must change the MQTT_MAX_PACKET_SIZE in the PubSubClient library.
+  <br>
+  Open the file "…/Arduino/libraries/pubSubClient/src/PubSubClient.h" and change the following line:
+  <br>
+  From:
+  <br>
+  #define MQTT_MAX_PACKET_SIZE 128
+  <br>
+  To:
+  <br>
+  #define MQTT_MAX_PACKET_SIZE 1024
+
+  <br><br>
+  <small>*If it is not working, instead of 1024 try to change this to a higher value</small>
+</p>
 
     <h3 id="fix-ttyusb">Cannot access /dev/ttyUSB0 (Optional)</h3>
 <p>
